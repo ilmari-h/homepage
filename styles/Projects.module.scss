@@ -1,11 +1,30 @@
 .githubCard {
+  display: flex;
+  flex-direction: column;
   border: 1px solid #b812352e;
   padding: 14px;
   border-radius: 10px;
   min-height: 162px;
   margin-bottom: 20px;
+  p {
+    flex-grow: 1;
+  }
 }
 
-.projectsList {
-  margin-top: 36px;
+.languagesList {
+  display: flex;
+  span {
+    margin: 0 10px;
+  }
+}
+
+.githubCalendarContainer {
+  position: relative;
+  overflow-x: hidden;
+  height: 150px;
+}
+.githubCalendar {
+  position: absolute;
+  min-width: 690px;
+  right: 0;
 }

@@ -26,6 +26,15 @@
   padding: 26px;
   max-width: 680px;
   margin: auto;
+
+  a {
+    color: white;
+    text-decoration: underline;
+  }
+
+  section {
+    margin-top: 36px;
+  }
 }
 
 .pageContent {
@@ -50,6 +59,7 @@
   h1 {
     text-align: center;
     margin-top: 18px;
+    padding: 0 1.5rem;
   }
 }
 
@@ -79,4 +89,13 @@
 .copyright {
   font-size: 0.7em;
   color: #484848;
+}
+
+.sidebarMenuList {
+  padding: 0 1.5em;
+  color: white;
+}
+
+.sidebarFixed {
+  position: fixed;
 }

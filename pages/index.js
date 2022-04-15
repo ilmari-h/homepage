@@ -20,6 +20,7 @@ export default function Home() {
             <a href="/projects">Projects</a>
           </li>
           <li>Academic</li>
+          <li>Blog</li>
           <li>Contact</li>
         </ol>
       </div>
