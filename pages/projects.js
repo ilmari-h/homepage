@@ -1,29 +1,13 @@
-import Head from "next/head";
 import styles from "../styles/Projects.module.scss";
 import pstyles from "../styles/Page.module.scss";
 import { useState, useEffect } from "react";
 import Page from "../src/renderPage";
+import GithubCard from "../src/githubCard";
 import GitHubCalendar from "react-github-calendar";
 
-const githubProjectsApi = [
-  "https://api.github.com/repos/ilmari-h/Rust-ray-tracing",
-  "https://api.github.com/repos/ilmari-h/rustmd",
-  "https://api.github.com/repos/ilmari-h/dotfiles",
-];
+const projects = ["Rust-ray-tracing", "rustmd", "dotfiles", "homepage"];
 
-export default function Home() {
-  const [projects, setProjects] = useState([]);
-  useEffect(() => {
-    Promise.all(
-      githubProjectsApi.map((pr) =>
-        fetch(pr).then((res) => {
-          return res.json().then((data) => {
-            return data;
-          });
-        })
-      )
-    ).then((arr) => setProjects(arr));
-  }, [projects]);
+export default function Projects() {
   return (
     <Page sidebar={true}>
       <div className={pstyles.contentPage}>
@@ -31,24 +15,14 @@ export default function Home() {
         <p>Things I've been working on.</p>
         <section>
           {projects.map((p) => {
-            return (
-              <div key={`gh-card-${p.name}`} className={styles.githubCard}>
-                <div>
-                  / <b>{p.name}</b>
-                </div>
-                <p>{p.description}</p>
-                <div className={styles.languagesList}>
-                  Languages: <span>{p.language}</span>
-                </div>
-              </div>
-            );
+            return <GithubCard key={`gh-card-${p}`} name={p} />;
           })}
         </section>
         <h1>GitHub activity</h1>
         <section>
           <div className={styles.githubCalendarContainer}>
-            <div class={styles.githubCalendar}>
-              <div class={styles.githubCalendarGrid}>
+            <div className={styles.githubCalendar}>
+              <div className={styles.githubCalendarGrid}>
                 <GitHubCalendar
                   username="ilmari-h"
                   color={"#b51233"}

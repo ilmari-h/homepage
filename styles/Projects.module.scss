@@ -6,15 +6,35 @@
   border-radius: 10px;
   min-height: 162px;
   margin-bottom: 20px;
+  * {
+    user-select: none;
+  }
   p {
     flex-grow: 1;
   }
-}
-
-.languagesList {
-  display: flex;
-  span {
-    margin: 0 10px;
+  .bottomRow {
+    display: flex;
+    justify-content: space-between;
+    span {
+      margin: 0 10px;
+    }
+    .GhLink {
+      display: flex;
+      align-self: flex-end;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: color 300ms cubic-bezier(0.23, 1, 0.32, 1);
+      svg {
+        margin-right: 6px;
+      }
+      &:hover {
+        color: #b51233;
+      }
+    }
+    a {
+      text-decoration: none;
+    }
   }
 }
 
@@ -23,6 +43,7 @@
   overflow-x: hidden;
   height: 150px;
 }
+
 .githubCalendar {
   position: absolute;
   min-width: 690px;

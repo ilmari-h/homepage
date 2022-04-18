@@ -14,14 +14,22 @@ export default function Sidebar() {
             .dev
           </a>
         </h1>
-        <ol class={styles.sidebarMenuList}>
-          <li>About me</li>
-          <li>
+        <ol className={styles.sidebarMenuList}>
+          <li className={"menuLink"}>
+            <a href={""}>About me</a>
+          </li>
+          <li className={"menuLink"}>
             <a href="/projects">Projects</a>
           </li>
-          <li>Academic</li>
-          <li>Blog</li>
-          <li>Contact</li>
+          <li className={"menuLink"}>
+            <a href={""}>Academic</a>
+          </li>
+          <li className={"menuLink"}>
+            <a href={"/blog"}>Blog</a>
+          </li>
+          <li className={"menuLink"}>
+            <a href={""}>Contact</a>
+          </li>
         </ol>
       </div>
     </div>

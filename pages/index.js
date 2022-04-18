@@ -1,4 +1,3 @@
-import Head from "next/head";
 import styles from "../styles/Home.module.scss";
 import { useState } from "react";
 import Page from "../src/renderPage";
@@ -15,13 +14,21 @@ export default function Home() {
         </h1>{" "}
         {/* Add cursive signature logo here or something*/}
         <ol className={styles.menuList}>
-          <li>About me</li>
-          <li>
+          <li className={"menuLink"}>
+            <a href={""}>About me</a>
+          </li>
+          <li className={"menuLink"}>
             <a href="/projects">Projects</a>
           </li>
-          <li>Academic</li>
-          <li>Blog</li>
-          <li>Contact</li>
+          <li className={"menuLink"}>
+            <a href={""}>Academic</a>
+          </li>
+          <li className={"menuLink"}>
+            <a href={"/blog"}>Blog</a>
+          </li>
+          <li className={"menuLink"}>
+            <a href={""}>Contact</a>
+          </li>
         </ol>
       </div>
     </Page>
