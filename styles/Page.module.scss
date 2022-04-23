@@ -9,7 +9,7 @@
     margin: 0;
   }
   strong {
-    color: #b51233;
+    color: var(--c-accent);
   }
 
   padding: 0;
@@ -50,7 +50,8 @@
   border-image: linear-gradient(
       to bottom,
       rgba(0, 0, 0, 0),
-      #1b1b1b 5%,
+      #1b1b1b 200px,
+      calc(100% - 200px),
       rgba(0, 0, 0, 0)
     )
     3 100%;
@@ -88,12 +89,12 @@
 
 .copyright {
   font-size: 0.7em;
-  color: #484848;
+  color: var(--c-subtle);
 }
 
 .sidebarMenuList {
   padding: 0 1.5em;
-  color: white;
+  color: var(--c-primary);
 }
 
 .sidebarFixed {

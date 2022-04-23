@@ -18,10 +18,18 @@ export default function Blog({ allPostsData }) {
     <Page sidebar={true}>
       <div className={pstyles.contentPage}>
         <h1>Posts</h1>
-        <p>Articles and ramblings</p>
+        <p>
+          Articles about programming related topics that serve as personal notes
+          and hopefully also make for an interesting or educational read.
+          {/*TODO: add some filters for topics*/}
+        </p>
         <section>
           {allPostsData.map((post) => (
-            <a className={styles.blogPostLink} href={`/blog/${post.name}`}>
+            <a
+              key={`bp-${post.name}`}
+              className={styles.blogPostLink}
+              href={`/blog/${post.name}`}
+            >
               <div>{post.title}</div>
               <dd>{post.date}</dd>
             </a>

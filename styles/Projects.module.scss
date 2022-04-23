@@ -1,7 +1,7 @@
 .githubCard {
   display: flex;
   flex-direction: column;
-  border: 1px solid #b812352e;
+  border: 1px solid var(--c-accent-dim);
   padding: 14px;
   border-radius: 10px;
   min-height: 162px;
@@ -29,7 +29,7 @@
         margin-right: 6px;
       }
       &:hover {
-        color: #b51233;
+        color: var(--c-accent);
       }
     }
     a {

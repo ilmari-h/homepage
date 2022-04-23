@@ -1,7 +1,52 @@
 .blogPostLink {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   text-decoration: none !important;
-  height: 46px;
-  align-items: center;
+  margin-bottom: 18px;
+  dd {
+    margin: 0;
+  }
+}
+
+.metadata {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 26px;
+  border-bottom: 1px solid gray;
+}
+
+.blogSection {
+  pre {
+    padding: 8px;
+    line-height: 1.1rem;
+  }
+  pre,
+  code {
+    background: var(--c-background-secondary);
+  }
+  code {
+    color: var(--c-primary);
+  }
+  ol {
+    list-style-type: string;
+    li {
+      margin-left: 1.6rem;
+      color: var(--c-paragraph);
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+    }
+  }
+  img {
+    width: 100%;
+    background: white;
+    padding: 10px;
+  }
+  h2,
+  h3,
+  h4,
+  h5 {
+    margin-top: 36px;
+  }
 }
