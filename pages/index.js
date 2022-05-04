@@ -21,13 +21,10 @@ export default function Home() {
             <a href="/projects">Projects</a>
           </li>
           <li className={"menuLink"}>
-            <a href={""}>Academic</a>
-          </li>
-          <li className={"menuLink"}>
             <a href={"/blog"}>Blog</a>
           </li>
           <li className={"menuLink"}>
-            <a href={""}>Contact</a>
+            <a href={"/academic"}>Academic</a>
           </li>
         </ol>
       </div>

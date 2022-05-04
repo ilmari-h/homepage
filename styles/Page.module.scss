@@ -1,3 +1,7 @@
+$tablet: 950px;
+$phone: 950px;
+$sidebarWidth: 178px;
+
 .container {
   h1,
   h2,
@@ -26,6 +30,10 @@
   padding: 26px;
   max-width: 680px;
   margin: auto;
+  width: 100vw;
+  @media screen and (max-width: $tablet) {
+    padding-left: 36px;
+  }
 
   a {
     color: white;
@@ -42,6 +50,22 @@
   color: white;
 }
 .sidebar {
+  @media screen and (max-width: $tablet) {
+    .sidebarExpand {
+      display: block !important;
+    }
+    position: fixed;
+    height: 100%;
+    background: black;
+    &.hidden {
+      width: 10px;
+      padding-left: 0px;
+      .sidebarFixed {
+        display: none;
+      }
+    }
+  }
+  z-index: 10;
   padding: 6px 10px;
   background: transparent;
   border-right: 1px solid #0d0d0d;
@@ -56,9 +80,8 @@
     )
     3 100%;
   grid-area: s;
-  width: 178px;
+  width: $sidebarWidth;
   h1 {
-    text-align: center;
     margin-top: 18px;
     padding: 0 1.5rem;
   }
@@ -92,11 +115,39 @@
   color: var(--c-subtle);
 }
 
+.sidebarExpand {
+  display: none !important;
+  background: var(--c-background-primary);
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  right: -26px;
+  top: 50vh;
+  display: flex;
+  border: none;
+  outline: none;
+  border-right: 1px solid var(--c-subtle);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  svg {
+    margin-left: 20px;
+    color: var(--c-paragraph);
+  }
+}
+
 .sidebarMenuList {
-  padding: 0 1.5em;
+  padding: 0 10px 0 1.5em;
   color: var(--c-primary);
+  svg {
+    margin-left: 5px;
+    margin-bottom: -3px;
+    width: 10px;
+  }
 }
 
 .sidebarFixed {
   position: fixed;
+  max-width: $sidebarWidth - 20px;
 }

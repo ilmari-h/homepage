@@ -2,6 +2,8 @@ import pstyles from "../../styles/Page.module.scss";
 import styles from "../../styles/Blog.module.scss";
 import Page from "../../src/renderPage";
 import { getAllPostNames, readMdFile } from "../../src/blogPosts";
+import { dateString } from "../blog";
+import { BsArrowReturnLeft } from "react-icons/bs";
 
 export async function getStaticPaths() {
   const paths = getAllPostNames();
@@ -19,21 +21,23 @@ export async function getStaticProps({ params }) {
   };
 }
 
-function dateString(date) {
-  const month = date.toLocaleString("default", { month: "short" });
-  return `${date.getDate()} ${month} ${date.getFullYear()}`;
-}
-
 export default function Post({ postData }) {
-  const postDate = new Date(postData.date);
   const editedDate = postData.edited ? new Date(postData.edited) : null;
   return (
-    <Page sidebar={true}>
+    <Page
+      sidebar={true}
+      sidebarLinks={postData.headers.map((h) => ({ title: h.header, url: "" }))}
+    >
       <div className={pstyles.contentPage}>
+        <a className={styles.backNavLink} href={"/blog"}>
+          <dd className={styles.backNavHeader}>
+            Blog / Posts <BsArrowReturnLeft />
+          </dd>
+        </a>
         <h1>{postData.title}</h1>
         <div className={styles.metadata}>
           <dd>
-            {dateString(postDate)}{" "}
+            {dateString(postData.date)}{" "}
             {editedDate ? `Edited ${dateString(editedDate)}` : ""}
           </dd>
         </div>

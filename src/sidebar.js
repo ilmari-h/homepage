@@ -1,9 +1,21 @@
+import { useState } from "react";
 import Image from "next/image";
 import styles from "../styles/Page.module.scss";
+import { BsChevronDown, BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
-export default function Sidebar() {
+export default function Sidebar({ links }) {
+  const [expanded, setExpanded] = useState(false);
+  const sidebarStyles = styles.sidebar;
   return (
-    <div className={styles.sidebar}>
+    <div
+      className={expanded ? sidebarStyles : `${sidebarStyles} ${styles.hidden}`}
+    >
+      <button
+        onClick={() => setExpanded(!expanded)}
+        className={styles.sidebarExpand}
+      >
+        {expanded ? <BsChevronLeft /> : <BsChevronRight />}
+      </button>
       <div className={styles.sidebarFixed}>
         {/* Add cursive signature logo here or something*/}
         <h1>
@@ -15,21 +27,11 @@ export default function Sidebar() {
           </a>
         </h1>
         <ol className={styles.sidebarMenuList}>
-          <li className={"menuLink"}>
-            <a href={""}>About me</a>
-          </li>
-          <li className={"menuLink"}>
-            <a href="/projects">Projects</a>
-          </li>
-          <li className={"menuLink"}>
-            <a href={""}>Academic</a>
-          </li>
-          <li className={"menuLink"}>
-            <a href={"/blog"}>Blog</a>
-          </li>
-          <li className={"menuLink"}>
-            <a href={""}>Contact</a>
-          </li>
+          {links.map((link) => (
+            <li key={link.title} className={"menuLink"}>
+              <a href={link.url}>{link.title}</a>
+            </li>
+          ))}
         </ol>
       </div>
     </div>

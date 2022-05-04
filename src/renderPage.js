@@ -3,10 +3,21 @@ import Image from "next/image";
 import styles from "../styles/Page.module.scss";
 import Sidebar from "../src/sidebar";
 
-export default function Page({ sidebar = false, children }) {
+const defaultLinks = [
+  { title: "About me", url: "" },
+  { title: "Projects", url: "/projects" },
+  { title: "Blog", url: "/blog" },
+  { title: "Academic", url: "/academic" },
+];
+
+export default function Page({
+  sidebar = false,
+  sidebarLinks = null,
+  children,
+}) {
   return (
     <div className={styles.container}>
-      {sidebar && <Sidebar />}
+      {sidebar && <Sidebar links={sidebarLinks ?? defaultLinks} />}
       <div className={styles.pageContent}>
         <Head>
           <title>Ilmari.dev</title>

@@ -13,6 +13,12 @@ export async function getStaticProps() {
   };
 }
 
+export function dateString(dateTimestamp) {
+  let date = new Date(dateTimestamp);
+  const month = date.toLocaleString("default", { month: "short" });
+  return `${date.getDate()} ${month} ${date.getFullYear()}`;
+}
+
 export default function Blog({ allPostsData }) {
   return (
     <Page sidebar={true}>
@@ -31,7 +37,7 @@ export default function Blog({ allPostsData }) {
               href={`/blog/${post.name}`}
             >
               <div>{post.title}</div>
-              <dd>{post.date}</dd>
+              <dd>{dateString(post.date)}</dd>
             </a>
           ))}
         </section>

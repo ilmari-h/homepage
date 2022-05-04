@@ -10,6 +10,10 @@ import html from "rehype-stringify";
 
 const postsPath = path.join(process.cwd(), "blog");
 
+function isValidDate(d) {
+  return d instanceof Date && !isNaN(d);
+}
+
 export function getSortedBlogPosts() {
   const fileNames = fs.readdirSync(postsPath);
 
@@ -22,25 +26,23 @@ export function getSortedBlogPosts() {
     const fileContents = fs.readFileSync(fullPath, "utf8");
     const matterResult = matter(fileContents);
 
-    // Use gray-matter to parse the post metadata section
-    //const matterResult = matter(fileContents)
+    // Date string to timestamp
+    const dateObj = matterResult.data.date
+      ? new Date(matterResult.data.date)
+      : null;
 
-    // Combine the data with the id
+    if (!dateObj || !isValidDate(dateObj)) {
+      console.log(`Error, invalid date for file ${fileName}`);
+    }
+
     return {
       name,
       ...matterResult.data,
+      date: dateObj.getTime(),
     };
   });
 
-  return posts.sort(({ date: a }, { date: b }) => {
-    if (a < b) {
-      return 1;
-    } else if (a > b) {
-      return -1;
-    } else {
-      return 0;
-    }
-  });
+  return posts.sort(({ date: a }, { date: b }) => b - a);
 }
 
 export function getAllPostNames() {
@@ -69,8 +71,16 @@ export async function readMdFile(filename) {
   const processingResult = await processor.process(matterResult.content);
   const convertedHtml = processingResult.toString();
 
+  const headersRegex = /<h[^>]+>(.*)<\/h[^>]+>/g;
+  let headers = [...convertedHtml.matchAll(headersRegex)].map((result) => ({
+    level: Number(result[0].charAt(2)),
+    header: result[1],
+    index: result.index,
+  }));
+
   return {
     html: convertedHtml,
+    headers,
     ...matterResult.data,
   };
 }
