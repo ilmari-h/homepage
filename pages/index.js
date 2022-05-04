@@ -1,6 +1,6 @@
 import styles from "../styles/Home.module.scss";
 import { useState } from "react";
-import Page from "../src/renderPage";
+import Page, { DEFAULT_LINKS } from "../src/renderPage";
 
 export default function Home() {
   return (
@@ -14,18 +14,11 @@ export default function Home() {
         </h1>{" "}
         {/* Add cursive signature logo here or something*/}
         <ol className={styles.menuList}>
-          <li className={"menuLink"}>
-            <a href={""}>About me</a>
-          </li>
-          <li className={"menuLink"}>
-            <a href="/projects">Projects</a>
-          </li>
-          <li className={"menuLink"}>
-            <a href={"/blog"}>Blog</a>
-          </li>
-          <li className={"menuLink"}>
-            <a href={"/academic"}>Academic</a>
-          </li>
+          {DEFAULT_LINKS.map(({ title, url }) => (
+            <li key={title} className={"menuLink"}>
+              <a href={url}>{title}</a>
+            </li>
+          ))}
         </ol>
       </div>
     </Page>
