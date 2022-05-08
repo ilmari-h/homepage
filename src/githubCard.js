@@ -1,6 +1,6 @@
 import styles from "../styles/Projects.module.scss";
 import { useState, useEffect } from "react";
-import { BsGithub } from "react-icons/bs";
+import { BsGithub, BsCodeSlash, BsShieldShaded } from "react-icons/bs";
 
 export default function GithubCard({ name }) {
   const [repoInfo, setRepoInfo] = useState(null);
@@ -24,13 +24,21 @@ export default function GithubCard({ name }) {
         <>
           <p>{repoInfo.description}</p>
           <div className={styles.bottomRow}>
-            <div>
-              Language: <span>{repoInfo.language}</span>
+            <div className={styles.ghStat}>
+              <BsCodeSlash /> <span>{repoInfo.language}</span>
             </div>
-            <a href={`https://github.com/ilmari-h/${name}`}>
-              <div className={styles.GhLink}>
-                <BsGithub /> go to repo {">"}
+
+            {repoInfo.license && (
+              <div className={styles.ghStat}>
+                <BsShieldShaded /> <span>{repoInfo.license.name}</span>
               </div>
+            )}
+
+            <a
+              className={styles.ghStat}
+              href={`https://github.com/ilmari-h/${name}`}
+            >
+              <BsGithub /> <span>Source</span>
             </a>
           </div>
         </>

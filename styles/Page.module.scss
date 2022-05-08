@@ -25,11 +25,15 @@ $sidebarWidth: 178px;
     "f f";
 }
 
+.nodec {
+  text-decoration: none !important;
+}
+
 .contentPage {
   padding: 26px;
   max-width: 680px;
   margin: auto;
-  width: 100vw;
+  width: calc(100vw - 12px);
   @media screen and (max-width: $tablet) {
     padding-left: 36px;
   }
@@ -64,7 +68,7 @@ $sidebarWidth: 178px;
       }
     }
   }
-  z-index: 10;
+  z-index: 2;
   padding: 6px 10px;
   background: transparent;
   border-right: 1px solid #0d0d0d;
@@ -96,6 +100,7 @@ $sidebarWidth: 178px;
 }
 
 .footer {
+  z-index: 10;
   grid-area: f;
   display: flex;
   margin: 0 6px;

@@ -5,7 +5,13 @@ import Page from "../src/renderPage";
 import GithubCard from "../src/githubCard";
 import GitHubCalendar from "react-github-calendar";
 
-const projects = ["Rust-ray-tracing", "rustmd", "dotfiles", "homepage"];
+const projects = [
+  "rustmd",
+  "arbtree.rs",
+  "homepage",
+  "Rust-ray-tracing",
+  "dotfiles",
+];
 
 export default function Projects() {
   return (
@@ -21,6 +27,7 @@ export default function Projects() {
         <h1>GitHub activity</h1>
         <section>
           <div className={styles.githubCalendarContainer}>
+            <div className={styles.calendarFadeOverlay} />
             <div className={styles.githubCalendar}>
               <div className={styles.githubCalendarGrid}>
                 <GitHubCalendar

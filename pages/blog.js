@@ -25,8 +25,8 @@ export default function Blog({ allPostsData }) {
       <div className={pstyles.contentPage}>
         <h1>Posts</h1>
         <p>
-          Articles about programming related topics that serve as personal notes
-          and hopefully also make for an interesting or educational read.
+          Articles about software development topics that serve as personal
+          notes and hopefully also make for an interesting or educational read.
           {/*TODO: add some filters for topics*/}
         </p>
         <section>

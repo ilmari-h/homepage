@@ -1,7 +1,7 @@
 .githubCard {
   display: flex;
   flex-direction: column;
-  border: 1px solid var(--c-accent-dim);
+  border: 1px solid var(--c-subtle);
   padding: 14px;
   border-radius: 10px;
   min-height: 162px;
@@ -13,27 +13,12 @@
     flex-grow: 1;
   }
   .bottomRow {
-    display: flex;
-    justify-content: space-between;
     span {
       margin: 0 10px;
     }
-    .GhLink {
-      display: flex;
-      align-self: flex-end;
+    .ghStat {
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: color 300ms cubic-bezier(0.23, 1, 0.32, 1);
-      svg {
-        margin-right: 6px;
-      }
-      &:hover {
-        color: var(--c-accent);
-      }
-    }
-    a {
-      text-decoration: none;
     }
   }
 }
@@ -42,9 +27,23 @@
   position: relative;
   overflow-x: hidden;
   height: 150px;
+  .calendarFadeOverlay {
+    position: absolute;
+    height: 100%;
+    width: 10%;
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 1) 9px,
+      rgba(255, 255, 255, 0) 76%
+    );
+    z-index: 2;
+  }
 }
 
 .githubCalendar {
+  margin-right: 9px;
+  margin-top: 9px;
   position: absolute;
   min-width: 690px;
   right: 0;
