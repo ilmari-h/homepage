@@ -22,7 +22,7 @@ export default function Page({
         <Head>
           <title>Ilmari.dev</title>
           <meta name="description" content="Developer site" />
-          <link rel="icon" href="/favicon.ico" />
+          <link rel="icon" href="/code-solid.svg" />
         </Head>
         {children}
       </div>
