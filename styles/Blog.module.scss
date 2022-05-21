@@ -39,9 +39,7 @@
     font-size: 12px;
     padding: 8px;
     line-height: 1.1rem;
-    white-space: pre-wrap;
-    overflow: hidden;
-    word-break: break-word;
+    overflow: scroll;
   }
   pre,
   code {
@@ -70,5 +68,9 @@
   h4,
   h5 {
     margin-top: 36px;
+  }
+  em,
+  strong {
+    color: var(--c-primary);
   }
 }

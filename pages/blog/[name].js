@@ -3,7 +3,7 @@ import pstyles from "../../styles/Page.module.scss";
 import styles from "../../styles/Blog.module.scss";
 import Page from "../../src/renderPage";
 import { useHash } from "../../src/useHash";
-import { getAllPostNames, readMdFile } from "../../src/blogPosts";
+import { getAllPostNames, readMdFile } from "../../src/buildTime";
 import { dateString } from "../blog";
 import { BsArrowReturnLeft } from "react-icons/bs";
 

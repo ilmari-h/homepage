@@ -2,7 +2,7 @@ import pstyles from "../styles/Page.module.scss";
 import styles from "../styles/Blog.module.scss";
 import { useState, useEffect } from "react";
 import Page from "../src/renderPage";
-import { getSortedBlogPosts } from "../src/blogPosts";
+import { getSortedBlogPosts } from "../src/buildTime";
 
 export async function getStaticProps() {
   const allPostsData = getSortedBlogPosts();

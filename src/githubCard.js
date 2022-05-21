@@ -1,4 +1,4 @@
-import styles from "../styles/Projects.module.scss";
+import styles from "../styles/GhActivity.module.scss";
 import { useState, useEffect } from "react";
 import { BsGithub, BsCodeSlash, BsShieldShaded } from "react-icons/bs";
 

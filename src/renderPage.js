@@ -4,7 +4,7 @@ import styles from "../styles/Page.module.scss";
 import Sidebar from "../src/sidebar";
 
 export const DEFAULT_LINKS = [
-  { title: "About me", url: "/about" },
+  { title: "About me", url: "/" },
   { title: "Projects", url: "/projects" },
   { title: "Blog", url: "/blog" },
   { title: "Academic", url: "/academic" },

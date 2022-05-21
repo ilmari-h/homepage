@@ -1,12 +1,15 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import dotenv from "dotenv";
 
 import { unified } from "unified";
 import markdown from "remark-parse";
 import remark2rehype from "remark-rehype";
 import highlight from "rehype-highlight";
 import html from "rehype-stringify";
+
+dotenv.config();
 
 const postsPath = path.join(process.cwd(), "blog");
 
@@ -55,6 +58,7 @@ export function getAllPostNames() {
     };
   });
 }
+
 export async function readMdFile(filename) {
   const filePath = path.join(postsPath, filename);
   const file = fs.readFileSync(filePath, "utf8");
@@ -82,5 +86,12 @@ export async function readMdFile(filename) {
     html: convertedHtml,
     headers,
     ...matterResult.data,
+  };
+}
+
+export function getPersonalInfo() {
+  return {
+    myName: process.env.HOMEPAGE_MYNAME ?? "[name]",
+    workingAt: process.env.HOMEPAGE_WORKINGAT ?? "[place]",
   };
 }

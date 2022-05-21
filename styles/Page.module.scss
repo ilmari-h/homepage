@@ -25,10 +25,6 @@ $sidebarWidth: 178px;
     "f f";
 }
 
-.nodec {
-  text-decoration: none !important;
-}
-
 .contentPage {
   padding: 26px;
   max-width: 680px;
@@ -40,7 +36,7 @@ $sidebarWidth: 178px;
 
   a {
     color: white;
-    text-decoration: underline;
+    border-bottom: 1px solid var(--c-subtle);
   }
 
   section {
