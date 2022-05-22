@@ -20,30 +20,31 @@ function isValidDate(d) {
 export function getSortedBlogPosts() {
   const fileNames = fs.readdirSync(postsPath);
 
-  const posts = fileNames.map((fileName) => {
-    // Assume file has ".md" ending
-    const name = fileName.replace(/\.md$/, "");
+  const posts = fileNames
+    .filter((anyFile) => anyFile.endsWith(".md"))
+    .map((fileName) => {
+      const name = fileName.replace(/\.md$/, "");
 
-    // Read markdown file as string
-    const fullPath = path.join(postsPath, fileName);
-    const fileContents = fs.readFileSync(fullPath, "utf8");
-    const matterResult = matter(fileContents);
+      // Read markdown file as string
+      const fullPath = path.join(postsPath, fileName);
+      const fileContents = fs.readFileSync(fullPath, "utf8");
+      const matterResult = matter(fileContents);
 
-    // Date string to timestamp
-    const dateObj = matterResult.data.date
-      ? new Date(matterResult.data.date)
-      : null;
+      // Date string to timestamp
+      const dateObj = matterResult.data.date
+        ? new Date(matterResult.data.date)
+        : null;
 
-    if (!dateObj || !isValidDate(dateObj)) {
-      console.log(`Error, invalid date for file ${fileName}`);
-    }
+      if (!dateObj || !isValidDate(dateObj)) {
+        console.log(`Error, invalid date for file ${fileName}`);
+      }
 
-    return {
-      name,
-      ...matterResult.data,
-      date: dateObj.getTime(),
-    };
-  });
+      return {
+        name,
+        ...matterResult.data,
+        date: dateObj.getTime(),
+      };
+    });
 
   return posts.sort(({ date: a }, { date: b }) => b - a);
 }
