@@ -90,6 +90,12 @@ export async function readMdFile(filename) {
   };
 }
 
+export function getGhKeyAPI() {
+  return {
+    key: process.env.HOMEPAGE_GH_API,
+  };
+}
+
 export function getPersonalInfo() {
   return {
     myName: process.env.HOMEPAGE_MYNAME ?? "[name]",

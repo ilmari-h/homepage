@@ -2,49 +2,31 @@ import styles from "../styles/GhActivity.module.scss";
 import { useState, useEffect } from "react";
 import { BsGithub, BsCodeSlash, BsShieldShaded } from "react-icons/bs";
 
-export default function GithubCard({ name }) {
-  const [repoInfo, setRepoInfo] = useState(null);
-
-  // Load repo data from GitHub API
-  useEffect(() => {
-    const url = `https://api.github.com/repos/ilmari-h/${name}`;
-    fetch(url).then(async (res) => {
-      return res.json().then(async (data) => {
-        setRepoInfo(data);
-      });
-    });
-  }, []);
-
+export default function GithubCard({ repoInfo }) {
   return (
     <div className={styles.githubCard}>
       <div>
-        / <b>{name}</b>
+        / <b>{repoInfo.name}</b>
       </div>
-      {repoInfo ? (
-        <>
-          <p>{repoInfo.description}</p>
-          <div className={styles.bottomRow}>
-            <div className={styles.ghStat}>
-              <BsCodeSlash /> <span>{repoInfo.language}</span>
-            </div>
+      <p>{repoInfo.description}</p>
+      <div className={styles.bottomRow}>
+        <div className={styles.ghStat}>
+          <BsCodeSlash /> <span>{repoInfo.language}</span>
+        </div>
 
-            {repoInfo.license && (
-              <div className={styles.ghStat}>
-                <BsShieldShaded /> <span>{repoInfo.license.name}</span>
-              </div>
-            )}
-
-            <a
-              className={styles.ghStat}
-              href={`https://github.com/ilmari-h/${name}`}
-            >
-              <BsGithub /> <span>Source</span>
-            </a>
+        {repoInfo.license && (
+          <div className={styles.ghStat}>
+            <BsShieldShaded /> <span>{repoInfo.license.name}</span>
           </div>
-        </>
-      ) : (
-        <p>Loading...</p>
-      )}
+        )}
+
+        <a
+          className={styles.ghStat}
+          href={`https://github.com/ilmari-h/${repoInfo.name}`}
+        >
+          <BsGithub /> <span>Source</span>
+        </a>
+      </div>
     </div>
   );
 }

@@ -20,11 +20,11 @@ export default function About({ myName, workingAt }) {
       <div className={pstyles.contentPage}>
         <h1>About me</h1>
         <p>
-          Hi. I'm {myName}. A Finnish software developer currently working at{" "}
-          {workingAt}. I go by{" "}
-          <a href="https://github.com/ilmari-h">@ilmari-h</a> on GitHub.
-          Currently on the final phases of my Master's degree, with graduation
-          looming in the near future of 2023.
+          Hi. I'm {myName}, <a href="https://github.com/ilmari-h">@ilmari-h</a>{" "}
+          on GitHub. A Finnish software developer currently working at{" "}
+          {workingAt}. In 2022 I graduated with a Bachelor's degree in Software
+          Engineering. Currently also working on the latter half of my Master's
+          degree, with graduation looming in the near future of 2023.
         </p>
 
         <p>
