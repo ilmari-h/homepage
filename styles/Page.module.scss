@@ -44,6 +44,10 @@ $sidebarWidth: 178px;
   }
 }
 
+.nowrap {
+  white-space: nowrap;
+}
+
 .pageContent {
   grid-area: c;
   color: white;
