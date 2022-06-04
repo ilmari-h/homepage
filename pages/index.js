@@ -21,11 +21,12 @@ export default function About({ myName, workingAt }) {
         <h1>About me</h1>
         <p>
           Hi. I'm <span className={pstyles.nowrap}>{myName}</span>,{" "}
-          <a href="https://github.com/ilmari-h">@ilmari-h</a> on GitHub. A
-          Finnish software developer currently working at{" "}
+          <a href="https://github.com/ilmari-h">@ilmari-h</a> on GitHub.
+          <br />
+          I'm a Finnish software developer currently working at{" "}
           <span className={pstyles.nowrap}>{workingAt}</span>. In 2022 I
-          graduated with a Bachelor's degree in Software Engineering. Currently
-          also working on the latter half of my Master's degree, with graduation
+          graduated with a Bachelor's degree in Software Engineering. Now I'm
+          working on the latter half of my Master's degree, with graduation
           looming in the near future of 2023.
         </p>
 

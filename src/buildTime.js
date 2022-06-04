@@ -70,7 +70,7 @@ export async function readMdFile(filename) {
   const processor = unified()
     .use(markdown)
     .use(remark2rehype)
-    .use(highlight, { subset: ["rust"] })
+    .use(highlight, { subset: ["rust", "go"] })
     .use(html);
 
   const processingResult = await processor.process(matterResult.content);

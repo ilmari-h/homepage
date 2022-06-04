@@ -40,6 +40,9 @@
     padding: 8px;
     line-height: 1.1rem;
     overflow: auto;
+    tab-size: 4;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
   }
   pre,
   code {
