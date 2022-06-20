@@ -25,9 +25,9 @@ export default function About({ myName, workingAt }) {
           <br />
           I'm a Finnish software developer currently working at{" "}
           <span className={pstyles.nowrap}>{workingAt}</span>. In 2022 I
-          graduated with a Bachelor's degree in Software Engineering. Now I'm
-          working on the latter half of my Master's degree, with graduation
-          looming in the near future of 2023.
+          graduated with a Bachelor's degree, with a major in Software Systems.
+          Now I'm working on the latter half of my Master's degree, with
+          graduation looming in the near future of 2023.
         </p>
 
         <p>
@@ -59,16 +59,6 @@ export default function About({ myName, workingAt }) {
               </div>
             </div>
           </div>
-        </section>
-        <section>
-          <h1>Donate</h1>
-          <p></p>
-          <p>
-            Monero:{" "}
-            <code style={{ wordBreak: "break-all" }}>
-              48QiCovstDPbHtMR5DP8tp3fUgguVUcdUX2pjbh6utt88fMe5h233ZnY7PxxdQYCjrVuCBQA2D8JBYU7rH2MdVDHFKd7QJi
-            </code>
-          </p>
         </section>
       </div>
     </Page>
