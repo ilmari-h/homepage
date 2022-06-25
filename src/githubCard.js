@@ -1,6 +1,10 @@
 import styles from "../styles/GhActivity.module.scss";
-import { useState, useEffect } from "react";
-import { BsGithub, BsCodeSlash, BsShieldShaded } from "react-icons/bs";
+import {
+  BsGithub,
+  BsCodeSlash,
+  BsShieldShaded,
+  BsFillStarFill,
+} from "react-icons/bs";
 
 export default function GithubCard({ repoInfo }) {
   return (
@@ -17,6 +21,13 @@ export default function GithubCard({ repoInfo }) {
         {repoInfo.license && (
           <div className={styles.ghStat}>
             <BsShieldShaded /> <span>{repoInfo.license.name}</span>
+          </div>
+        )}
+
+        {repoInfo.stargazers_count > 0 && (
+          <div className={styles.ghStat}>
+            <BsFillStarFill />{" "}
+            <span style={{ marginLeft: 4 }}>{repoInfo.stargazers_count}</span>
           </div>
         )}
 
