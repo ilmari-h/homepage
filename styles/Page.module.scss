@@ -29,6 +29,7 @@ $sidebarWidth: 178px;
   padding: 26px;
   max-width: 680px;
   margin: auto;
+  margin-top: 26px;
   width: calc(100vw - 12px);
   @media screen and (max-width: $tablet) {
     padding-left: 36px;
