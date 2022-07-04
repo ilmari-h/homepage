@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Page.module.scss";
 import Sidebar from "../src/sidebar";
 
@@ -7,7 +6,7 @@ export const DEFAULT_LINKS = [
   { title: "About me", url: "/" },
   { title: "Projects", url: "/projects" },
   { title: "Blog", url: "/blog" },
-  { title: "Academic", url: "/academic" },
+  { title: "Publications", url: "/publications" },
 ];
 
 export default function Page({

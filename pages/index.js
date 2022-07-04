@@ -37,10 +37,11 @@ export default function About({ myName, workingAt }) {
         </p>
 
         <p>
-          Got questions, comments, greetings?
-          <br />
           You can reach me via email at:{" "}
           <a href={"mailto:mail@ilmari.dev"}>mail@ilmari.dev</a>
+          <br />
+          or connect with me on{" "}
+          <a href="https://www.linkedin.com/in/salle-heleva/">LinkedIn</a>.
         </p>
         <section>
           <h1>GitHub activity</h1>
