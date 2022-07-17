@@ -5,6 +5,7 @@ import { getGhKeyAPI } from "../src/buildTime";
 
 const projects = [
   "dlv-tui",
+  "bettit",
   "arbtree.rs",
   "homepage",
   "Rust-ray-tracing",
